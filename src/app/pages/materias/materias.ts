@@ -7,15 +7,9 @@ interface Materia {
   descricao: string;
 }
 
-interface Materia {
-  nome: string;
-  descricao: string;
-}
-
 @Component({
   selector: 'app-materias',
   standalone: true,
-  imports: [CommonModule],
   imports: [CommonModule, RouterLink],
   templateUrl: './materias.html',
   styleUrl: './materias.css',
