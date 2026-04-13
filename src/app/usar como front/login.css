@@ -1,0 +1,33 @@
+<div class="container">
+  <img src="/coal.png" class="logo" alt="Logo CarboTech" />
+
+  <h1>Recuperar senha</h1>
+
+  <p class="subtitle" *ngIf="!enviado">
+    Digite seu e-mail para receber o link de recuperação
+  </p>
+
+  <p class="subtitle success" *ngIf="enviado">
+    Link enviado! Verifique seu e-mail 📩
+  </p>
+
+  <div class="form" *ngIf="!enviado">
+    <input
+      type="email"
+      placeholder="Seu e-mail"
+      [(ngModel)]="email"
+      autocomplete="email"
+      aria-label="Seu e-mail"
+    />
+
+    <p class="error-message" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+
+    <button type="button" class="btn" (click)="enviar()" [disabled]="loading">
+      {{ loading ? 'Enviando...' : 'Enviar link' }}
+    </button>
+  </div>
+
+  <button type="button" class="back" (click)="voltar()">
+    Voltar para login
+  </button>
+</div>
