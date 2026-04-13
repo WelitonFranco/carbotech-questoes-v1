@@ -1,5 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+interface Materia {
+  nome: string;
+  descricao: string;
+}
+
+interface Materia {
+  nome: string;
+  descricao: string;
+}
 
 interface Materia {
   nome: string;
@@ -11,55 +22,27 @@ interface Materia {
 @Component({
   selector: 'app-materias',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './materias.html',
   styleUrl: './materias.css',
 })
 export class Materias {
   materias: Materia[] = [
     {
-      nome: 'Língua Portuguesa',
-      quantidadeQuestoes: '20 questões',
-      descricao: 'Base de interpretação, gramática e redação prática.',
-      submaterias: [
-        'Interpretação de texto',
-        'Gramática aplicada',
-        'Redação prática para concursos',
-      ],
-    },
-    {
-      nome: 'Raciocínio Lógico',
-      quantidadeQuestoes: '10 questões',
-      descricao: 'Lógica e matemática básica aplicada a provas objetivas.',
-      submaterias: ['Raciocínio lógico', 'Matemática básica aplicada a concursos'],
+      nome: 'Português',
+      descricao: 'Interpretação de texto, gramática e redação para concursos.',
     },
     {
       nome: 'Informática',
-      quantidadeQuestoes: '10 questões',
-      descricao: 'Conteúdo essencial para operação e segurança digital em prova.',
-      submaterias: ['Informática básica', 'Informática avançada'],
+      descricao: 'Conceitos de sistemas, segurança e ferramentas mais cobradas.',
     },
     {
-      nome: 'Legislação Aplicada / Direito',
-      quantidadeQuestoes: '30 questões',
-      descricao: 'Núcleo jurídico central para preparação de Policial Penal.',
-      submaterias: [
-        'Direito Penal (Parte Geral e Parte Especial)',
-        'Direito Processual Penal',
-        'Direitos Humanos e Estatuto do Idoso',
-      ],
+      nome: 'Direito Constitucional',
+      descricao: 'Princípios fundamentais, direitos e organização do Estado.',
     },
     {
-      nome: 'Legislação da Polícia Penal',
-      quantidadeQuestoes: '10 questões',
-      descricao: 'Leis e normas específicas da rotina e atuação institucional.',
-      submaterias: ['Lei de Execução Penal', 'Regimento Interno', 'Legislação da Polícia Penal'],
-    },
-    {
-      nome: 'Conhecimentos Gerais',
-      quantidadeQuestoes: '10 questões (0 a 10 em alguns editais)',
-      descricao: 'Bloco complementar conforme exigência específica do edital.',
-      submaterias: ['Atualidades e contexto institucional para Policial Penal'],
+      nome: 'Raciocínio Lógico',
+      descricao: 'Estruturas lógicas, análise combinatória e resolução de problemas.',
     },
   ];
 }

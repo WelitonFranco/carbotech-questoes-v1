@@ -1,5 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+interface Plano {
+  nome: string;
+  descricao: string;
+  preco: string;
+  acao: string;
+  destaque?: boolean;
+}
+
+interface Plano {
+  nome: string;
+  descricao: string;
+  preco: string;
+  acao: string;
+  destaque?: boolean;
+  chamada?: string;
+}
 
 interface Plano {
   nome: string;
@@ -13,7 +31,7 @@ interface Plano {
 @Component({
   selector: 'app-planos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './planos.html',
   styleUrl: './planos.css',
 })
@@ -21,25 +39,22 @@ export class Planos {
   planos: Plano[] = [
     {
       nome: 'Gratuito',
-      descricao: 'Acesso limitado para começar sua rotina com foco diário.',
+      descricao: 'Ideal para começar. Até 10 questões por dia.',
       preco: 'R$ 0,00',
       acao: 'Plano atual',
-      chamada: 'Até 10 questões por dia',
     },
     {
       nome: 'Mensal',
-      descricao: 'Acesso ilimitado para estudar sem limite diário.',
-      preco: 'R$ 14,90',
+      descricao: 'Mais questões diárias e recursos extras de estudo.',
+      preco: 'R$ 29,90/mês',
       acao: 'Assinar mensal',
       destaque: true,
-      chamada: 'Acesso ilimitado',
     },
     {
-      nome: 'Vitalício',
-      descricao: 'Acesso ilimitado permanente para estudar no seu ritmo.',
-      preco: 'R$ 29,90',
-      acao: 'Assinar vitalício',
-      chamada: 'Acesso ilimitado permanente',
+      nome: 'Trimestral',
+      descricao: 'Melhor custo-benefício para manter consistência.',
+      preco: 'R$ 79,90/trimestre',
+      acao: 'Assinar trimestral',
     },
   ];
 }

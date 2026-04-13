@@ -3,45 +3,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px;
+  padding: 24px 20px;
   box-sizing: border-box;
 }
 
 .form {
-  width: min(760px, 100%);
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   background: #fff;
   border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 30px;
+  border-radius: 14px;
+  padding: 24px;
 }
 
 .logo {
-  width: 58px;
+  width: 50px;
   margin-bottom: 4px;
 }
 
 .title {
   margin: 0;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 700;
   color: #111827;
   text-align: left;
 }
 
 .subtitulo {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: #6b7280;
-  font-size: 16px;
 }
 
 input[type='text'],
 input[type='email'],
 input[type='tel'],
 input[type='password'] {
-  height: 48px;
+  height: 44px;
   border-radius: 10px;
   border: 1px solid #d1d5db;
   padding: 0 12px;
