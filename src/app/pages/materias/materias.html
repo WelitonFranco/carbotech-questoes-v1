@@ -1,1 +1,23 @@
-<p>materias works!</p>
+<main class="pagina">
+  <section class="cabecalho">
+    <h1>Matérias</h1>
+    <p>Escolha uma matéria para começar seus estudos com foco.</p>
+  </section>
+
+  <section class="materias-grid">
+    <article class="materia-card" *ngFor="let materia of materias">
+      <h2>{{ materia.nome }}</h2>
+      <p>{{ materia.descricao }}</p>
+      <button type="button">Acessar</button>
+    </article>
+  </section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

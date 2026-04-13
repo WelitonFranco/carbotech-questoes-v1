@@ -1,1 +1,49 @@
-<p>questoes works!</p>
+<main class="pagina">
+  <section class="cabecalho">
+    <h1>Questões</h1>
+    <p>Treine com questões simuladas e acompanhe seu desempenho.</p>
+  </section>
+
+  <section class="regra-plano">
+    <strong>Plano gratuito:</strong> até 10 questões por dia.
+  </section>
+
+  <section class="questao-card">
+    <h2>Questão exemplo</h2>
+    <p class="enunciado">{{ enunciado }}</p>
+
+    <div class="alternativas">
+      <label *ngFor="let alternativa of alternativas">
+        <input
+          type="radio"
+          name="alternativa"
+          [value]="alternativa.id"
+          [(ngModel)]="alternativaSelecionada"
+        />
+        <span><strong>{{ alternativa.id }})</strong> {{ alternativa.texto }}</span>
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button type="button" (click)="responder()" [disabled]="!alternativaSelecionada">Responder</button>
+      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
+    </div>
+
+    <section class="feedback" [class.correto]="respondeu && alternativaSelecionada === alternativaCorreta" [class.incorreto]="respondeu && alternativaSelecionada !== alternativaCorreta">
+      <h3>Feedback</h3>
+      <p>{{ feedback }}</p>
+      <p class="explicacao">
+        Explicação: a alternativa <strong>{{ alternativaCorreta }}</strong> representa competências da União previstas na Constituição, como telecomunicações e defesa nacional.
+      </p>
+    </section>
+  </section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>
