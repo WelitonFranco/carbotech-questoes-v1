@@ -1,0 +1,126 @@
+.pagina {
+  width: 100%;
+  padding: 30px 28px 46px;
+  box-sizing: border-box;
+}
+
+.cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 38px;
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 17px;
+}
+
+.regra-plano {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.questao-card {
+  margin-top: 16px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.questao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.questao-card h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.enunciado {
+  margin: 14px 0 16px;
+  font-weight: 600;
+  line-height: 1.45;
+  font-size: 18px;
+}
+
+.alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alternativas label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.alternativas label.selecionada {
+  border-color: #111827;
+  background: #f9fafb;
+}
+
+.acoes {
+  margin-top: 16px;
+}
+
+button {
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  padding: 0 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.secundario {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.feedback {
+  margin-top: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.feedback h3,
+.feedback p {
+  margin: 0;
+}
+
+.feedback p {
+  margin-top: 8px;
+  color: #374151;
+  line-height: 1.45;
+}
+
+.feedback.correto {
+  border-color: #86c79e;
+  background: #f3fbf5;
+}
+
+.feedback.incorreto {
+  border-color: #d9acac;
+  background: #fff6f6;
+}

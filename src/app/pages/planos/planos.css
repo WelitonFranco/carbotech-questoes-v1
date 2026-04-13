@@ -1,0 +1,79 @@
+.pagina {
+  width: 100%;
+  padding: 30px 28px 46px;
+  box-sizing: border-box;
+}
+
+.cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 38px;
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 17px;
+}
+
+.planos-grid {
+  margin-top: 26px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.plano-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plano-card.destaque {
+  border-color: #111827;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+.chamada {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.plano-card h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.descricao {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.preco {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.plano-card button {
+  height: 46px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plano-card button:hover {
+  opacity: 0.92;
+}

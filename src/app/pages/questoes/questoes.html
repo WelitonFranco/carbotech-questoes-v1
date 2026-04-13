@@ -1,1 +1,44 @@
-<p>questoes works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <h1>Questões</h1>
+    <p>Prática simulada com correção imediata e explicação após cada resposta.</p>
+  </header>
+
+  <section class="regra-plano">
+    <strong>Plano gratuito:</strong> até 10 questões por dia.
+  </section>
+
+  <section class="questao-card">
+    <div class="questao-topo">
+      <h2>Questão {{ indiceQuestaoAtual + 1 }} de {{ questoes.length }}</h2>
+      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
+    </div>
+
+    <p class="enunciado">{{ questaoAtual.enunciado }}</p>
+
+    <div class="alternativas">
+      <label
+        *ngFor="let alternativa of questaoAtual.alternativas"
+        [class.selecionada]="alternativaSelecionada === alternativa.id"
+      >
+        <input
+          type="radio"
+          name="alternativa"
+          [value]="alternativa.id"
+          [(ngModel)]="alternativaSelecionada"
+          [disabled]="respondeu"
+        />
+        <span><strong>{{ alternativa.id }})</strong> {{ alternativa.texto }}</span>
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button type="button" (click)="responder()" [disabled]="!podeResponder">Responder</button>
+    </div>
+
+    <section class="feedback" *ngIf="respondeu" [class.correto]="acertou" [class.incorreto]="!acertou">
+      <h3>{{ acertou ? 'Resposta correta!' : 'Resposta incorreta.' }}</h3>
+      <p class="explicacao">{{ questaoAtual.explicacao }}</p>
+    </section>
+  </section>
+</section>

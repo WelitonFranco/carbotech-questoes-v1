@@ -1,1 +1,43 @@
-<p>home works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <p class="boas-vindas">Olá, {{ usuario.nome }} 👋</p>
+    <h1>Painel inicial</h1>
+    <p class="subtitulo">Uma visão rápida do seu progresso e dos próximos passos de estudo.</p>
+  </header>
+
+  <section class="grade-inicial">
+    <article class="card status-assinatura">
+      <h2>Status da assinatura</h2>
+      <p class="status">{{ usuario.statusAssinatura }}</p>
+      <p class="descricao">{{ usuario.validade }}</p>
+      <a routerLink="/planos" class="link-card">Ver opções de upgrade</a>
+    </article>
+
+    <article class="card uso-diario">
+      <h2>Meta diária</h2>
+      <p class="status">Você ainda pode responder {{ questoesRestantesHoje }} questões hoje.</p>
+      <div class="barra-progresso" aria-label="Progresso diário de questões">
+        <span [style.width.%]="percentualUso"></span>
+      </div>
+      <small>{{ usoDiario.respondidas }} respondidas de {{ usoDiario.limite }} no plano atual.</small>
+    </article>
+  </section>
+
+  <section class="acoes-rapidas">
+    <h2>Acessos rápidos</h2>
+    <div class="atalhos-grid">
+      <a routerLink="/materias" class="atalho">
+        <strong>Matérias</strong>
+        <span>Organize sua trilha por disciplina</span>
+      </a>
+      <a routerLink="/questoes" class="atalho">
+        <strong>Questões</strong>
+        <span>Pratique com simulações objetivas</span>
+      </a>
+      <a routerLink="/planos" class="atalho">
+        <strong>Planos</strong>
+        <span>Desbloqueie acesso ilimitado</span>
+      </a>
+    </div>
+  </section>
+</section>
