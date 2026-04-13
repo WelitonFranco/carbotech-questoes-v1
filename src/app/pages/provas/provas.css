@@ -1,0 +1,74 @@
+.pagina {
+  min-height: calc(100vh - 68px);
+  padding: 32px 24px 96px;
+  background: #f7f7f8;
+  box-sizing: border-box;
+}
+
+.cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #5d5d5d;
+}
+
+.lista-provas {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.prova-card {
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.prova-card h2 {
+  margin: 0 0 12px;
+}
+
+.detalhes {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.detalhes p {
+  margin: 0;
+  color: #444;
+}
+
+.prova-card button {
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  padding: 0 14px;
+  font-weight: 600;
+}
+
+.footer-dev {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #111;
+}
+
+.footer-dev a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}

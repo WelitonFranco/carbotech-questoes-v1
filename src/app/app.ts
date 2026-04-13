@@ -17,6 +17,7 @@ export class App {
     { rota: '/home', rotulo: 'Home' },
     { rota: '/materias', rotulo: 'Matérias' },
     { rota: '/questoes', rotulo: 'Questões' },
+    { rota: '/provas', rotulo: 'Provas' },
     { rota: '/planos', rotulo: 'Planos' },
   ];
 }

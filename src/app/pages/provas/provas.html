@@ -1,0 +1,30 @@
+<main class="pagina">
+  <section class="cabecalho">
+    <h1>Provas</h1>
+    <p>Escolha uma prova simulada e inicie a resolução completa em modo frontend.</p>
+  </section>
+
+  <section class="lista-provas">
+    <article class="prova-card" *ngFor="let prova of provas">
+      <h2>{{ prova.nome }}</h2>
+      <div class="detalhes">
+        <p><strong>Cargo:</strong> {{ prova.cargo }}</p>
+        <p><strong>Ano:</strong> {{ prova.ano }}</p>
+        <p><strong>Estado:</strong> {{ prova.estado }}</p>
+        <p><strong>Banca:</strong> {{ prova.banca }}</p>
+        <p><strong>Quantidade de questões:</strong> {{ prova.questoesIds.length }}</p>
+      </div>
+      <button type="button" (click)="iniciarProva(prova.id)">Iniciar prova</button>
+    </article>
+  </section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/provas">Provas</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

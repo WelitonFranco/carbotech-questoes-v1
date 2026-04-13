@@ -7,6 +7,7 @@ import { Home } from './pages/home/home';
 import { Materias } from './pages/materias/materias';
 import { Questoes } from './pages/questoes/questoes';
 import { Planos } from './pages/planos/planos';
+import { Provas } from './pages/provas/provas';
 
 export const routes: Routes = [
   { path: '', component: Splash },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'home', component: Home },
   { path: 'materias', component: Materias },
   { path: 'questoes', component: Questoes },
+  { path: 'provas', component: Provas },
   { path: 'planos', component: Planos },
 ];
