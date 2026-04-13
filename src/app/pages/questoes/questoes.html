@@ -3,6 +3,11 @@
     <h1>Questões</h1>
     <p>Pratique com blocos curtos e feedback imediato para acelerar sua evolução.</p>
   </header>
+<main class="pagina">
+  <section class="cabecalho">
+    <h1>Questões</h1>
+    <p>Treine com questões simuladas e acompanhe seu desempenho.</p>
+  </section>
 
   <section class="regra-plano">
     <strong>Plano gratuito:</strong> até 10 questões por dia.
@@ -17,6 +22,7 @@
         *ngFor="let alternativa of alternativas"
         [class.selecionada]="alternativaSelecionada === alternativa.id"
       >
+      <label *ngFor="let alternativa of alternativas">
         <input
           type="radio"
           name="alternativa"
@@ -38,6 +44,11 @@
       [class.correto]="respondeu && acertou"
       [class.incorreto]="respondeu && !acertou"
     >
+      <button type="button" (click)="responder()" [disabled]="!alternativaSelecionada">Responder</button>
+      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
+    </div>
+
+    <section class="feedback" [class.correto]="respondeu && alternativaSelecionada === alternativaCorreta" [class.incorreto]="respondeu && alternativaSelecionada !== alternativaCorreta">
       <h3>Feedback</h3>
       <p>{{ feedback }}</p>
       <p class="explicacao">
@@ -46,3 +57,13 @@
     </section>
   </section>
 </section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

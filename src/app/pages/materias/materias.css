@@ -1,15 +1,21 @@
 .pagina {
   padding: 28px 20px 36px;
+  min-height: calc(100vh - 68px);
+  padding: 32px 24px 96px;
+  background: #f7f7f8;
+  box-sizing: border-box;
 }
 
 .cabecalho h1 {
   margin: 0 0 8px;
   font-size: 32px;
+  font-size: 28px;
 }
 
 .cabecalho p {
   margin: 0;
   color: #6b7280;
+  color: #5d5d5d;
 }
 
 .materias-grid {
@@ -17,6 +23,7 @@
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .materia-card {
@@ -27,6 +34,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .materia-card h2 {
@@ -38,6 +51,7 @@
   margin: 0;
   color: #4b5563;
   line-height: 1.45;
+  color: #555;
   flex: 1;
 }
 
@@ -53,4 +67,29 @@
 
 .materia-card button:hover {
   opacity: 0.92;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-dev {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #111;
+}
+
+.footer-dev a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
 }
