@@ -1,12 +1,20 @@
 import { Routes } from '@angular/router';
-import { ForgotPassword } from './pages/forgot-password/forgot-password';
+import { Splash } from './pages/splash/splash';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
-import { Splash } from './pages/splash/splash';
+import { ForgotPassword } from './pages/forgot-password/forgot-password';
+import { Home } from './pages/home/home';
+import { Materias } from './pages/materias/materias';
+import { Questoes } from './pages/questoes/questoes';
+import { Planos } from './pages/planos/planos';
 
 export const routes: Routes = [
   { path: '', component: Splash },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'forgot-password', component: ForgotPassword },
+  { path: 'home', component: Home },
+  { path: 'materias', component: Materias },
+  { path: 'questoes', component: Questoes },
+  { path: 'planos', component: Planos },
 ];
