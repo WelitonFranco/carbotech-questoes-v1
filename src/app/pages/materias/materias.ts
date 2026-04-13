@@ -12,6 +12,13 @@ interface Materia {
   descricao: string;
 }
 
+interface Materia {
+  nome: string;
+  quantidadeQuestoes: string;
+  descricao: string;
+  submaterias: string[];
+}
+
 @Component({
   selector: 'app-materias',
   standalone: true,
