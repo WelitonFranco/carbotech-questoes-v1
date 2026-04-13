@@ -7,6 +7,11 @@ interface Materia {
   descricao: string;
 }
 
+interface Materia {
+  nome: string;
+  descricao: string;
+}
+
 @Component({
   selector: 'app-materias',
   standalone: true,
