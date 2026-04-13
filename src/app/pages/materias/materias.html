@@ -1,1 +1,23 @@
-<p>materias works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <h1>Matérias</h1>
+    <p>Catálogo de estudo por disciplina com volume de questões e submatérias.</p>
+  </header>
+
+  <section class="materias-grid">
+    <article class="materia-card" *ngFor="let materia of materias">
+      <h2>{{ materia.nome }}</h2>
+      <p class="quantidade">{{ materia.quantidadeQuestoes }}</p>
+      <p>{{ materia.descricao }}</p>
+
+      <div class="submaterias">
+        <h3>Submatérias</h3>
+        <ul>
+          <li *ngFor="let submateria of materia.submaterias">{{ submateria }}</li>
+        </ul>
+      </div>
+
+      <button type="button">Iniciar estudos</button>
+    </article>
+  </section>
+</section>

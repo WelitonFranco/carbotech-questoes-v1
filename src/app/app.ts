@@ -1,10 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App {
+  linksNavegacao = [
+    { rota: '/', rotulo: 'Splash', exato: true },
+    { rota: '/login', rotulo: 'Login' },
+    { rota: '/register', rotulo: 'Cadastro' },
+    { rota: '/forgot-password', rotulo: 'Recuperar senha' },
+    { rota: '/home', rotulo: 'Home' },
+    { rota: '/materias', rotulo: 'Matérias' },
+    { rota: '/questoes', rotulo: 'Questões' },
+    { rota: '/planos', rotulo: 'Planos' },
+  ];
+}
