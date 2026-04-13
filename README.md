@@ -22,7 +22,7 @@ Nesta etapa atual, o foco é **100% frontend**:
 ### Stack atual (implementada)
 - **Frontend:** Angular 20 (standalone components)
 - **Linguagens:** TypeScript, HTML, CSS
-- **Gerenciamento de estado:** estado local em componentes (dados simulados)
+- **Gerenciamento de estado:** estado local em componentes + serviços em memória (dados simulados)
 
 ### Stack futura (planejada)
 - **Backend:** PocketBase
@@ -43,6 +43,7 @@ Rotas mantidas no projeto:
 - `/home` → Home
 - `/materias` → Matérias
 - `/questoes` → Questões
+- `/provas` → Provas (nova página)
 - `/planos` → Planos
 
 ### Estado funcional atual
@@ -69,6 +70,7 @@ Existe um **menu global temporário** visível em todas as telas para acelerar v
 - Home
 - Matérias
 - Questões
+- Provas
 - Planos
 
 > Essa navegação é temporária para construção. Na fase de produto final, poderá ser substituída por navegação definitiva.
@@ -77,40 +79,85 @@ Existe um **menu global temporário** visível em todas as telas para acelerar v
 
 ## 5) Regras de frontend (obrigatórias nesta fase)
 1. **Não integrar backend real agora**.
-2. **Não implementar regra final de negócio** nesta etapa.
+2. **Não conectar PocketBase nesta etapa**.
 3. Manter interface limpa, profissional e consistente.
 4. Evitar excesso de efeitos e poluição visual.
 5. Priorizar clareza de navegação e feedback dos estados.
 6. Preservar rotas e fluxos já estáveis ao refinar telas.
 7. Toda evolução deve manter compatibilidade com componentes standalone.
+8. Tudo continua simulado em frontend local (sem persistência real).
 
 ---
 
-## 6) Convenção de nomenclatura
-### Diretriz geral
-Priorizar português sempre que possível (componentes, propriedades, textos de interface e variáveis auxiliares).
+## 6) Fluxo de questões (lógica simulada atual)
+### Regra das 10 questões diárias
+- O limite diário é de **10 acertos únicos por dia**.
+- **Apenas acertos contam** no limite diário.
+- Erros repetidos da mesma questão **não consomem** limite.
+- A mesma questão só é contabilizada **uma única vez** após o primeiro acerto.
 
-### Exceções permitidas
-Manter termos em inglês quando forem exigidos por:
-- APIs do Angular (`RouterLink`, `CommonModule`, etc.);
-- convenções técnicas de framework;
-- caminhos/arquivos já consolidados cuja mudança possa quebrar a aplicação.
+### Estrutura obrigatória da questão
+Cada questão é preparada com os campos:
+- questão
+- cargo
+- ano
+- estado
+- banca
+- enunciado
+- alternativas
+- resposta correta
+- explicação
 
-### Convenção adotada nesta fase
-- Estrutura base atual (`pages`, `core`) foi preservada por estabilidade.
-- Padronização em português foi reforçada principalmente em:
-  - textos de interface;
-  - nomes de propriedades/métodos auxiliares;
-  - organização semântica dos blocos visuais.
+### Alternativas padronizadas
+Todas as questões usam **exatamente 5 alternativas**:
+- A
+- B
+- C
+- D
+- E
+
+### Feedback de tentativa
+- O aluno seleciona uma alternativa e clica em **Responder**.
+- O sistema avalia aquela tentativa.
+- O feedback (acerto/erro e explicação) fica **congelado** para a tentativa avaliada.
+- Trocar alternativa após responder **não altera o feedback** automaticamente.
+
+### Navegação entre questões
+- Botão **Questão anterior**.
+- Botão **Próxima questão**.
+- O aluno pode avançar e retornar entre questões de forma contínua.
 
 ---
 
-## 7) Organização atual do projeto
+## 7) Página de provas (nova)
+Nova rota `/provas` para experiência inicial de prova completa simulada.
+
+### Nesta etapa, a tela de provas permite:
+- listar provas disponíveis;
+- exibir nome da prova, cargo, ano, estado, banca e quantidade de questões;
+- iniciar prova pelo botão **Iniciar prova**;
+- navegar para a tela de questões com contexto de prova simulado.
+
+> Ainda não há resultado final, gabarito completo ou timer real. A estrutura foi preparada para evolução futura.
+
+---
+
+## 8) Home e progresso diário
+A Home reflete a nova lógica de contagem:
+- exibe: **“Você acertou X de 10 questões hoje”**;
+- usa a mesma base simulada de progresso da tela de questões;
+- não contabiliza erros repetidos da mesma questão.
+
+---
+
+## 9) Organização atual do projeto
 ```text
 src/
   app/
     core/
       auth.service.ts
+      progresso-questoes.service.ts
+      questoes-data.service.ts
     pages/
       splash/
       login/
@@ -119,6 +166,7 @@ src/
       home/
       materias/
       questoes/
+      provas/
       planos/
     app.ts
     app.html
@@ -126,33 +174,6 @@ src/
     app.routes.ts
   styles.css
 ```
-
-### Observação estrutural
-Como objetivo de curto prazo é estabilidade e entrega do frontend, **não foi feita migração agressiva de pastas** para evitar quebra de imports/rotas.
-
-Na próxima fase, se necessário, podemos planejar uma migração controlada para diretórios 100% em português (ex.: `paginas`, `servicos`, `compartilhado`).
-
----
-
-## 8) Critérios visuais e UX adotados
-- Hierarquia clara de títulos e subtítulos
-- Espaçamento consistente entre seções
-- Cartões com borda suave e leitura confortável
-- Botões principais com contraste adequado
-- Estados de desabilitado visíveis e sem ambiguidade
-- Feedback de acerto/erro na tela de questões
-- Consistência de linguagem e tom em todas as telas
-
----
-
-## 9) Dados simulados (mock)
-Para esta etapa, telas internas usam dados simulados:
-- Home: usuário, assinatura e uso diário
-- Matérias: lista de disciplinas
-- Questões: enunciado, alternativas, resposta correta e feedback
-- Planos: catálogo de planos e chamadas de conversão
-
-> Esses dados serão substituídos por integração real com PocketBase na próxima etapa.
 
 ---
 
@@ -184,17 +205,18 @@ npm test
 ---
 
 ## 11) Próximos passos (fase backend)
-1. Definir modelo de dados no PocketBase (usuários, matérias, questões, planos, progresso).
+1. Definir modelo de dados no PocketBase (usuários, matérias, questões, provas, planos, progresso).
 2. Conectar autenticação real com backend.
 3. Substituir mocks por serviços HTTP.
-4. Implementar regras de produto (limites, trilhas, progresso persistente).
-5. Evoluir navegação temporária para navegação definitiva do produto.
+4. Implementar persistência de progresso diário e histórico de tentativas.
+5. Evoluir modo prova (resultado final, gabarito, cronômetro e retomada).
 
 ---
 
 ## 12) Status da etapa atual
 ✅ Frontend Angular refinado, navegável e consistente.  
-✅ README atualizado como base oficial do projeto.  
+✅ Fluxo de questões com regra de acerto diário aplicada em frontend simulado.  
+✅ Página de provas adicionada e integrada ao fluxo.  
 ⏳ Integração real com PocketBase fica para a próxima etapa.
 
 ---

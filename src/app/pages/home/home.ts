@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ProgressoQuestoesService } from '../../core/progresso-questoes.service';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +17,17 @@ export class Home {
     validade: 'Acesso ativo',
   };
 
-  usoDiario = {
-    respondidas: 3,
-    limite: 10,
-  };
+  constructor(private readonly progressoQuestoesService: ProgressoQuestoesService) {}
+
+  get questoesAcertadasHoje(): number {
+    return this.progressoQuestoesService.questoesAcertadasHoje;
+  }
+
+  get limiteDiario(): number {
+    return this.progressoQuestoesService.limiteDiario;
+  }
 
   get percentualUso(): number {
-    return (this.usoDiario.respondidas / this.usoDiario.limite) * 100;
+    return this.progressoQuestoesService.percentualUsoDiario;
   }
 }

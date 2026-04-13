@@ -14,7 +14,8 @@
 
     <article class="card">
       <h2>Uso diário</h2>
-      <p class="status">Você respondeu {{ usoDiario.respondidas }} de {{ usoDiario.limite }} questões hoje</p>
+      <p class="status">Você acertou {{ questoesAcertadasHoje }} de {{ limiteDiario }} questões hoje</p>
+      <p class="descricao">Erros repetidos da mesma questão não consomem o limite diário.</p>
       <div class="barra-progresso" aria-label="Progresso de uso diário">
         <span [style.width.%]="percentualUso"></span>
       </div>
@@ -26,6 +27,7 @@
     <div class="atalhos-grid">
       <a routerLink="/materias" class="atalho">Matérias</a>
       <a routerLink="/questoes" class="atalho">Questões</a>
+      <a routerLink="/provas" class="atalho">Provas</a>
       <a routerLink="/planos" class="atalho">Planos</a>
     </div>
   </section>
@@ -35,6 +37,7 @@
   <a routerLink="/home">Home</a>
   <a routerLink="/materias">Matérias</a>
   <a routerLink="/questoes">Questões</a>
+  <a routerLink="/provas">Provas</a>
   <a routerLink="/planos">Planos</a>
   <a routerLink="/login">Login</a>
   <a routerLink="/register">Cadastro</a>

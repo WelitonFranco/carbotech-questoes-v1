@@ -1,48 +1,72 @@
 <main class="pagina">
   <section class="cabecalho">
     <h1>Questões</h1>
-    <p>Treine com questões simuladas e acompanhe seu desempenho.</p>
+    <p>{{ tituloContexto }}</p>
   </section>
 
   <section class="regra-plano">
-    <strong>Plano gratuito:</strong> até 10 questões por dia.
+    <strong>Plano gratuito:</strong> você acertou {{ questoesAcertadasHoje }} de {{ limiteDiario }} questões hoje.
   </section>
 
-  <section class="questao-card">
-    <h2>Questão exemplo</h2>
-    <p class="enunciado">{{ enunciado }}</p>
+  <section class="questao-card" *ngIf="questaoAtual as questao; else semQuestoes">
+    <div class="meta-topo">
+      <h2>Questão {{ questao.questao }}</h2>
+      <span class="badge" *ngIf="questaoJaContabilizadaNoDia">Já contabilizada no dia</span>
+    </div>
+
+    <div class="dados-grid">
+      <p><strong>Cargo:</strong> {{ questao.cargo }}</p>
+      <p><strong>Ano:</strong> {{ questao.ano }}</p>
+      <p><strong>Estado:</strong> {{ questao.estado }}</p>
+      <p><strong>Banca:</strong> {{ questao.banca }}</p>
+    </div>
+
+    <p class="enunciado">{{ questao.enunciado }}</p>
 
     <div class="alternativas">
-      <label *ngFor="let alternativa of alternativas">
+      <label *ngFor="let alternativa of questao.alternativas">
         <input
           type="radio"
           name="alternativa"
           [value]="alternativa.id"
-          [(ngModel)]="alternativaSelecionada"
+          [ngModel]="estadoAtual.alternativaSelecionadaAtual"
+          (ngModelChange)="atualizarAlternativaSelecionada($event)"
         />
         <span><strong>{{ alternativa.id }})</strong> {{ alternativa.texto }}</span>
       </label>
     </div>
 
     <div class="acoes">
-      <button type="button" (click)="responder()" [disabled]="!alternativaSelecionada">Responder</button>
-      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
+      <button type="button" (click)="responder()" [disabled]="!estadoAtual.alternativaSelecionadaAtual">Responder</button>
+      <button type="button" class="secundario" (click)="irParaQuestaoAnterior()" [disabled]="!podeVoltarQuestao">Questão anterior</button>
+      <button type="button" class="secundario" (click)="irParaProximaQuestao()" [disabled]="!podeAvancarQuestao">Próxima questão</button>
+      <button type="button" class="terciario" *ngIf="provaSelecionadaId" (click)="voltarParaListaProvas()">Voltar para provas</button>
     </div>
 
-    <section class="feedback" [class.correto]="respondeu && alternativaSelecionada === alternativaCorreta" [class.incorreto]="respondeu && alternativaSelecionada !== alternativaCorreta">
+    <section class="feedback" [class.correto]="respondidaNaTentativaAtual && acertouTentativaAtual" [class.incorreto]="respondidaNaTentativaAtual && !acertouTentativaAtual">
       <h3>Feedback</h3>
       <p>{{ feedback }}</p>
-      <p class="explicacao">
-        Explicação: a alternativa <strong>{{ alternativaCorreta }}</strong> representa competências da União previstas na Constituição, como telecomunicações e defesa nacional.
+      <p class="explicacao" *ngIf="respondidaNaTentativaAtual">
+        Explicação: {{ questao.explicacao }}
       </p>
+      <p class="limite" *ngIf="mensagemLimite">{{ mensagemLimite }}</p>
     </section>
   </section>
+
+  <ng-template #semQuestoes>
+    <section class="questao-card">
+      <h2>Nenhuma questão disponível</h2>
+      <p>Não encontramos questões para este filtro simulado de prova.</p>
+      <button type="button" class="terciario" (click)="voltarParaListaProvas()">Voltar para provas</button>
+    </section>
+  </ng-template>
 </main>
 
 <footer class="footer-dev">
   <a routerLink="/home">Home</a>
   <a routerLink="/materias">Matérias</a>
   <a routerLink="/questoes">Questões</a>
+  <a routerLink="/provas">Provas</a>
   <a routerLink="/planos">Planos</a>
   <a routerLink="/login">Login</a>
   <a routerLink="/register">Cadastro</a>
