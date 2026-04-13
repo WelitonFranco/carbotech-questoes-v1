@@ -1,0 +1,56 @@
+.pagina {
+  padding: 28px 20px 36px;
+}
+
+.cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.materias-grid {
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.materia-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.materia-card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.materia-card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.materia-card button {
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.materia-card button:hover {
+  opacity: 0.92;
+}

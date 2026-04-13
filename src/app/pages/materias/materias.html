@@ -1,1 +1,14 @@
-<p>materias works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <h1>Matérias</h1>
+    <p>Monte uma rotina por disciplina e avance com consistência.</p>
+  </header>
+
+  <section class="materias-grid">
+    <article class="materia-card" *ngFor="let materia of materias">
+      <h2>{{ materia.nome }}</h2>
+      <p>{{ materia.descricao }}</p>
+      <button type="button">Iniciar estudos</button>
+    </article>
+  </section>
+</section>

@@ -1,1 +1,48 @@
-<p>questoes works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <h1>Questões</h1>
+    <p>Pratique com blocos curtos e feedback imediato para acelerar sua evolução.</p>
+  </header>
+
+  <section class="regra-plano">
+    <strong>Plano gratuito:</strong> até 10 questões por dia.
+  </section>
+
+  <section class="questao-card">
+    <h2>Questão exemplo</h2>
+    <p class="enunciado">{{ enunciado }}</p>
+
+    <div class="alternativas">
+      <label
+        *ngFor="let alternativa of alternativas"
+        [class.selecionada]="alternativaSelecionada === alternativa.id"
+      >
+        <input
+          type="radio"
+          name="alternativa"
+          [value]="alternativa.id"
+          [(ngModel)]="alternativaSelecionada"
+          [disabled]="respondeu"
+        />
+        <span><strong>{{ alternativa.id }})</strong> {{ alternativa.texto }}</span>
+      </label>
+    </div>
+
+    <div class="acoes">
+      <button type="button" (click)="responder()" [disabled]="!podeResponder">Responder</button>
+      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
+    </div>
+
+    <section
+      class="feedback"
+      [class.correto]="respondeu && acertou"
+      [class.incorreto]="respondeu && !acertou"
+    >
+      <h3>Feedback</h3>
+      <p>{{ feedback }}</p>
+      <p class="explicacao">
+        Explicação: a alternativa <strong>{{ alternativaCorreta }}</strong> representa competências da União previstas na Constituição, como telecomunicações e defesa nacional.
+      </p>
+    </section>
+  </section>
+</section>
