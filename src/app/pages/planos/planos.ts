@@ -7,34 +7,8 @@ interface Plano {
   descricao: string;
   preco: string;
   acao: string;
-  destaque?: boolean;
-}
-
-interface Plano {
-  nome: string;
-  descricao: string;
-  preco: string;
-  acao: string;
-  destaque?: boolean;
-  chamada?: string;
-}
-
-interface Plano {
-  nome: string;
-  descricao: string;
-  preco: string;
-  acao: string;
-  destaque?: boolean;
   chamada: string;
-}
-
-interface Plano {
-  nome: string;
-  descricao: string;
-  preco: string;
-  acao: string;
-  destaque?: boolean;
-  chamada: string;
+  destaque: boolean;
 }
 
 @Component({
@@ -50,20 +24,25 @@ export class Planos {
       nome: 'Gratuito',
       descricao: 'Ideal para começar. Até 10 questões por dia.',
       preco: 'R$ 0,00',
-      acao: 'Plano atual',
+      acao: 'Começar grátis',
+      chamada: 'Perfeito para testar a plataforma',
+      destaque: false,
     },
     {
       nome: 'Mensal',
-      descricao: 'Mais questões diárias e recursos extras de estudo.',
-      preco: 'R$ 29,90/mês',
+      descricao: 'Acesso ilimitado para estudar todos os dias.',
+      preco: 'R$ 14,90/mês',
       acao: 'Assinar mensal',
+      chamada: 'Desbloqueie acesso ilimitado',
       destaque: true,
     },
     {
-      nome: 'Trimestral',
-      descricao: 'Melhor custo-benefício para manter consistência.',
-      preco: 'R$ 79,90/trimestre',
-      acao: 'Assinar trimestral',
+      nome: 'Vitalício',
+      descricao: 'Pagamento único com acesso permanente.',
+      preco: 'R$ 29,90',
+      acao: 'Assinar vitalício',
+      chamada: 'Estude sem limite diário',
+      destaque: false,
     },
   ];
 }
