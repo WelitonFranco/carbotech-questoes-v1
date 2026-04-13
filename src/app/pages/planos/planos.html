@@ -1,1 +1,16 @@
-<p>planos works!</p>
+<section class="pagina">
+  <header class="cabecalho">
+    <h1>Planos</h1>
+    <p>Escolha o plano ideal para acelerar seus resultados.</p>
+  </header>
+
+  <section class="planos-grid">
+    <article class="plano-card" *ngFor="let plano of planos" [class.destaque]="plano.destaque">
+      <p class="chamada" *ngIf="plano.chamada">{{ plano.chamada }}</p>
+      <h2>{{ plano.nome }}</h2>
+      <p class="descricao">{{ plano.descricao }}</p>
+      <p class="preco">{{ plano.preco }}</p>
+      <button type="button">{{ plano.acao }}</button>
+    </article>
+  </section>
+</section>

@@ -1,35 +1,49 @@
 .container {
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  padding: 24px;
+  padding: 24px 20px;
   box-sizing: border-box;
 }
 
 .form {
-  width: 320px;
+  width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.logo {
+  width: 50px;
+  margin-bottom: 4px;
 }
 
 .title {
-  margin: 0 0 8px 0;
-  font-size: 28px;
+  margin: 0;
+  font-size: 30px;
   font-weight: 700;
-  color: #111;
+  color: #111827;
   text-align: left;
+}
+
+.subtitulo {
+  margin: 0 0 8px;
+  color: #6b7280;
 }
 
 input[type='text'],
 input[type='email'],
 input[type='tel'],
 input[type='password'] {
-  height: 42px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
   padding: 0 12px;
   font-size: 14px;
   box-sizing: border-box;
@@ -41,8 +55,8 @@ input[type='email']:focus,
 input[type='tel']:focus,
 input[type='password']:focus {
   outline: none;
-  border-color: #1a1a1a;
-  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
 }
 
 .input-error {
@@ -66,7 +80,7 @@ input[type='password']:focus {
   margin: -2px 0 0 0;
   font-size: 12px;
   line-height: 1.4;
-  color: #1b7f3b;
+  color: #166534;
   text-align: left;
 }
 
@@ -80,7 +94,7 @@ input[type='password']:focus {
   gap: 10px;
   font-size: 13px;
   line-height: 1.5;
-  color: #333;
+  color: #374151;
   margin-top: 4px;
 }
 
@@ -92,7 +106,7 @@ input[type='password']:focus {
 }
 
 .checkbox-row a {
-  color: #000;
+  color: #111827;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -104,21 +118,12 @@ input[type='password']:focus {
 .btn {
   height: 45px;
   border: none;
-  border-radius: 8px;
-  background: #000;
+  border-radius: 10px;
+  background: #111827;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
   margin-top: 6px;
-}
-
-.btn:hover {
-  opacity: 0.92;
-}
-
-.btn:active {
-  transform: scale(0.99);
 }
 
 .btn:disabled {

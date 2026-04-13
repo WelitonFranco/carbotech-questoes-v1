@@ -1,79 +1,60 @@
 .container {
-  height: 100vh;
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
+  gap: 20px;
   text-align: center;
-  gap: 12px;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 1.5s ease-in-out;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.apresentacao {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 26px 24px;
+  width: min(520px, 100%);
 }
 
 .logo {
-  width: 350px;
-  max-width: 80vw;
-  margin-bottom: 20px;
+  width: 220px;
+  max-width: 70vw;
+  margin: 0 auto 12px;
   display: block;
-  animation: logoFloat 1.5s ease-in-out;
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 40px;
   margin: 0;
-  color: #1a1a1a;
+  color: #111827;
   line-height: 1.1;
 }
 
 h2 {
-  font-size: 30px;
-  letter-spacing: 4px;
-  color: #777;
-  margin: 4px 0 0;
-  line-height: 1.1;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #4b5563;
+  margin: 8px 0 12px;
+  line-height: 1.2;
 }
 
-.footer {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.rodape {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #999;
+  color: #6b7280;
   font-size: 12px;
-  white-space: nowrap;
 }
 
-.footer img.small {
-  width: 35px;
+.rodape img.small {
+  width: 28px;
   height: auto;
   display: block;
-}
-
-/* ENTRADA */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* LOGO */
-@keyframes logoFloat {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }

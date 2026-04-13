@@ -1,6 +1,8 @@
-<div class="container">
+<section class="container">
   <form class="form" (ngSubmit)="cadastrar()" #registerForm="ngForm">
+    <img src="/coal.png" alt="Logo CarboTech" class="logo" />
     <h1 class="title">Criar conta</h1>
+    <p class="subtitulo">Crie seu acesso e comece sua rotina de estudos.</p>
 
     <input
       type="text"
@@ -121,4 +123,4 @@
       {{ loading ? 'Cadastrando...' : 'Criar conta' }}
     </button>
   </form>
-</div>
+</section>
