@@ -11,6 +11,7 @@ interface Alternativa {
 @Component({
   selector: 'app-questoes',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './questoes.html',
   styleUrl: './questoes.css',
@@ -29,17 +30,27 @@ export class Questoes {
   alternativaSelecionada = '';
   respondeu = false;
 
+  get podeResponder(): boolean {
+    return !!this.alternativaSelecionada && !this.respondeu;
+  }
+
+  get acertou(): boolean {
+    return this.alternativaSelecionada === this.alternativaCorreta;
+  }
+
   get feedback(): string {
     if (!this.respondeu) {
       return 'Selecione uma alternativa e clique em responder.';
     }
 
+    return this.acertou
     return this.alternativaSelecionada === this.alternativaCorreta
       ? 'Resposta correta! Excelente andamento.'
       : 'Resposta incorreta. Revise a explicação e tente novamente.';
   }
 
   responder(): void {
+    if (!this.podeResponder) {
     if (!this.alternativaSelecionada) {
       return;
     }
