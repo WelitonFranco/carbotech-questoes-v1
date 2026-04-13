@@ -1,31 +1,34 @@
 .pagina {
-  padding: 28px 20px 36px;
+  min-height: calc(100vh - 68px);
+  padding: 32px 24px 96px;
+  background: #f7f7f8;
+  box-sizing: border-box;
 }
 
 .cabecalho h1 {
   margin: 0 0 8px;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .cabecalho p {
   margin: 0;
-  color: #6b7280;
+  color: #5d5d5d;
 }
 
 .regra-plano {
   margin-top: 20px;
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
   padding: 12px 14px;
 }
 
 .questao-card {
-  margin-top: 14px;
+  margin-top: 16px;
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 18px;
 }
 
 .questao-card h2 {
@@ -35,7 +38,6 @@
 .enunciado {
   margin: 0 0 16px;
   font-weight: 600;
-  line-height: 1.4;
 }
 
 .alternativas {
@@ -46,17 +48,11 @@
 
 .alternativas label {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: flex-start;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border: 1px solid #ececec;
+  border-radius: 8px;
   padding: 10px;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.alternativas label.selecionada {
-  border-color: #111827;
-  background: #f9fafb;
 }
 
 .acoes {
@@ -67,29 +63,23 @@
 }
 
 .acoes button {
-  height: 42px;
+  height: 40px;
   border: none;
-  border-radius: 10px;
-  background: #111827;
+  border-radius: 8px;
+  background: #111;
   color: #fff;
-  padding: 0 18px;
+  padding: 0 16px;
   font-weight: 600;
-  cursor: pointer;
-}
-
-.acoes button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .acoes .secundario {
-  background: #e5e7eb;
-  color: #111827;
+  background: #ececec;
+  color: #111;
 }
 
 .feedback {
   margin-top: 18px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e7e7e7;
   border-radius: 10px;
   padding: 12px;
 }
@@ -100,15 +90,34 @@
 }
 
 .feedback.correto {
-  border-color: #86c79e;
+  border-color: #77c38a;
   background: #f3fbf5;
 }
 
 .feedback.incorreto {
-  border-color: #d9acac;
+  border-color: #d6a8a8;
   background: #fff6f6;
 }
 
 .explicacao {
-  color: #4b5563;
+  color: #525252;
+}
+
+.footer-dev {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #111;
+}
+
+.footer-dev a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
 }

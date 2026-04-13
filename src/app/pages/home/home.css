@@ -1,61 +1,60 @@
 .pagina {
   padding: 28px 20px 36px;
+  min-height: calc(100vh - 68px);
+  background: #f7f7f8;
+  color: #141414;
+  box-sizing: border-box;
 }
 
 .cabecalho h1 {
   margin: 6px 0;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .boas-vindas {
   margin: 0;
   font-weight: 600;
-  color: #374151;
 }
 
 .subtitulo {
   margin: 0;
-  color: #6b7280;
-  max-width: 580px;
+  color: #5d5d5d;
 }
 
-.grade-inicial {
+.grade {
   margin-top: 24px;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .card {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 18px;
 }
 
 .card h2,
-.acoes-rapidas h2 {
+.atalhos h2 {
   margin: 0 0 10px;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .status {
   margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #111827;
+  font-weight: 600;
 }
 
-.descricao,
-small {
-  color: #6b7280;
+.descricao {
+  margin: 0;
+  color: #5d5d5d;
 }
 
 .barra-progresso {
   width: 100%;
   height: 10px;
-  margin: 12px 0;
-  background: #e5e7eb;
+  background: #efefef;
   border-radius: 999px;
   overflow: hidden;
 }
@@ -63,43 +62,45 @@ small {
 .barra-progresso span {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #111827, #374151);
+  background: #111;
 }
 
-.link-card {
-  display: inline-block;
-  margin-top: 10px;
-  color: #111827;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.acoes-rapidas {
-  margin-top: 26px;
+.atalhos {
+  margin-top: 24px;
 }
 
 .atalhos-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .atalho {
   text-decoration: none;
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 12px;
+  color: #111;
+  text-align: center;
+  font-weight: 600;
+}
+
+.footer-dev {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #111;
 }
 
-.atalho strong {
-  color: #111827;
-}
-
-.atalho span {
-  color: #6b7280;
+.footer-dev a {
+  color: #fff;
+  text-decoration: none;
   font-size: 14px;
 }
