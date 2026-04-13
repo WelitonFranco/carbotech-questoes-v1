@@ -48,16 +48,19 @@ A plataforma permitirá que candidatos estudem por questões, com experiência s
 
 1. Visitante não responde questões.
 2. Usuário logado sem assinatura pode responder até 10 questões por dia.
-3. O limite diário é calculado com base em `respostas_usuario` do dia atual.
+3. O limite diário é calculado com base em `respostas_usuario` no intervalo entre **00:00 e 23:59 do dia atual**.
 4. Ao atingir 10 respostas no dia sem assinatura ativa, novas respostas devem ser bloqueadas.
 5. O bloqueio deve exibir mensagem clara e amigável + CTA para planos.
 6. Usuário com assinatura ativa responde sem limite.
-7. Após responder, o sistema deve mostrar:
+7. Uma assinatura é considerada ativa quando `status = "ativa"` **e** `data_fim` é maior ou igual à data atual.
+8. O frontend deve validar o status da assinatura antes de permitir acesso a conteúdos restritos.
+9. O sistema deve proteger rotas internas contra acesso direto sem autenticação.
+10. Após responder, o sistema deve mostrar:
    - se acertou ou errou;
    - alternativa correta;
    - explicação da questão (quando houver).
-8. Toda resposta deve ser registrada em `respostas_usuario`.
-9. Deve haver proteção contra envio duplicado enquanto a resposta está em processamento.
+11. Toda resposta deve ser registrada em `respostas_usuario`.
+12. Deve haver proteção contra envio duplicado enquanto a resposta está em processamento.
 
 ---
 
@@ -85,6 +88,7 @@ A plataforma permitirá que candidatos estudem por questões, com experiência s
    - saudação com nome;
    - status da assinatura;
    - contador de uso diário para plano gratuito;
+   - contador de questões restantes no dia para usuários gratuitos (ex.: “Você ainda pode responder 3 questões hoje”);
    - atalhos para matérias;
    - chamada para assinatura quando necessário.
 
@@ -177,6 +181,7 @@ A plataforma permitirá que candidatos estudem por questões, com experiência s
 - `status`
 - `data_inicio`
 - `data_fim`
+- `ativo` (campo auxiliar para validações rápidas; não substitui a validação principal de `status` e `data_fim`)
 
 ---
 
@@ -287,6 +292,7 @@ O MVP será considerado pronto quando:
 - todas as telas mínimas estiverem implementadas;
 - o fluxo de resposta de questão estiver funcional;
 - a regra de limite diário estiver ativa para usuários gratuitos;
+- o fluxo completo de bloqueio por limite diário com incentivo à assinatura estiver funcionando corretamente;
 - a experiência de assinatura (status e CTA) estiver clara;
 - o frontend estiver preparado para integração completa com PocketBase.
 
@@ -300,7 +306,8 @@ O MVP será considerado pronto quando:
 4. Entregar primeiro fluxo completo: login → matéria → questão → resposta.
 5. Implementar bloqueio das 10 questões/dia.
 6. Integrar planos/assinatura.
-7. Publicar frontend na Vercel e backend na VPS.
+7. Adicionar métricas básicas de uso (ex.: quantidade de questões respondidas por usuário).
+8. Publicar frontend na Vercel e backend na VPS.
 
 ---
 
