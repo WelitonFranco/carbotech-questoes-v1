@@ -28,6 +28,15 @@ interface Plano {
   chamada: string;
 }
 
+interface Plano {
+  nome: string;
+  descricao: string;
+  preco: string;
+  acao: string;
+  destaque?: boolean;
+  chamada: string;
+}
+
 @Component({
   selector: 'app-planos',
   standalone: true,
