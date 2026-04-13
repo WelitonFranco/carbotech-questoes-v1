@@ -1,16 +1,24 @@
-<section class="pagina">
-  <header class="cabecalho">
+<main class="pagina">
+  <section class="cabecalho">
     <h1>Planos</h1>
-    <p>Escolha como deseja estudar e desbloqueie seu ritmo ideal.</p>
-  </header>
+    <p>Escolha o plano que melhor combina com seu ritmo de preparação.</p>
+  </section>
 
   <section class="planos-grid">
     <article class="plano-card" *ngFor="let plano of planos" [class.destaque]="plano.destaque">
-      <p class="chamada">{{ plano.chamada }}</p>
       <h2>{{ plano.nome }}</h2>
       <p class="descricao">{{ plano.descricao }}</p>
       <p class="preco">{{ plano.preco }}</p>
       <button type="button">{{ plano.acao }}</button>
     </article>
   </section>
-</section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

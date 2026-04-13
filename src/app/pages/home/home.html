@@ -1,43 +1,41 @@
-<section class="pagina">
-  <header class="cabecalho">
+<main class="pagina">
+  <section class="cabecalho">
     <p class="boas-vindas">Olá, {{ usuario.nome }} 👋</p>
-    <h1>Painel inicial</h1>
-    <p class="subtitulo">Uma visão rápida do seu progresso e dos próximos passos de estudo.</p>
-  </header>
+    <h1>Seu painel de estudos</h1>
+    <p class="subtitulo">Acompanhe sua rotina e acesse rapidamente as principais áreas.</p>
+  </section>
 
-  <section class="grade-inicial">
-    <article class="card status-assinatura">
+  <section class="grade">
+    <article class="card">
       <h2>Status da assinatura</h2>
       <p class="status">{{ usuario.statusAssinatura }}</p>
       <p class="descricao">{{ usuario.validade }}</p>
-      <a routerLink="/planos" class="link-card">Ver opções de upgrade</a>
     </article>
 
-    <article class="card uso-diario">
-      <h2>Meta diária</h2>
-      <p class="status">Você ainda pode responder {{ questoesRestantesHoje }} questões hoje.</p>
-      <div class="barra-progresso" aria-label="Progresso diário de questões">
+    <article class="card">
+      <h2>Uso diário</h2>
+      <p class="status">Você respondeu {{ usoDiario.respondidas }} de {{ usoDiario.limite }} questões hoje</p>
+      <div class="barra-progresso" aria-label="Progresso de uso diário">
         <span [style.width.%]="percentualUso"></span>
       </div>
-      <small>{{ usoDiario.respondidas }} respondidas de {{ usoDiario.limite }} no plano atual.</small>
     </article>
   </section>
 
-  <section class="acoes-rapidas">
-    <h2>Acessos rápidos</h2>
+  <section class="atalhos">
+    <h2>Atalhos rápidos</h2>
     <div class="atalhos-grid">
-      <a routerLink="/materias" class="atalho">
-        <strong>Matérias</strong>
-        <span>Organize sua trilha por disciplina</span>
-      </a>
-      <a routerLink="/questoes" class="atalho">
-        <strong>Questões</strong>
-        <span>Pratique com simulações objetivas</span>
-      </a>
-      <a routerLink="/planos" class="atalho">
-        <strong>Planos</strong>
-        <span>Desbloqueie acesso ilimitado</span>
-      </a>
+      <a routerLink="/materias" class="atalho">Matérias</a>
+      <a routerLink="/questoes" class="atalho">Questões</a>
+      <a routerLink="/planos" class="atalho">Planos</a>
     </div>
   </section>
-</section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

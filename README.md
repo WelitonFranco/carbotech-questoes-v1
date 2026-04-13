@@ -1,37 +1,41 @@
 # CarboTech Questões — Frontend Angular
 
 ## Documento oficial do projeto (fase frontend)
-Este README é a base principal da etapa atual. Mudanças futuras devem seguir estas diretrizes para manter consistência visual, navegação e organização.
+Este README é a **referência principal obrigatória** para evolução do projeto nesta fase.
+
+> Todas as próximas mudanças de frontend devem respeitar as diretrizes descritas aqui (estrutura, nomenclatura, padrões visuais e organização).
 
 ---
 
-## 1) Visão geral
-Plataforma de estudos para concursos com foco em:
-- prática de questões,
-- organização por matérias,
-- evolução por plano.
+## 1) Visão geral do produto
+A CarboTech Questões é uma plataforma focada em prática para concursos, com trilha por matérias, resolução de questões e gestão de planos.
 
-Nesta fase, o foco é **frontend finalizado primeiro** (sem backend real conectado).
+Nesta etapa atual, o foco é **100% frontend**:
+- telas refinadas e navegáveis;
+- consistência visual;
+- organização do código;
+- base pronta para integração futura com backend.
 
 ---
 
 ## 2) Stack atual e stack futura
-### Atual
-- Frontend: **Angular 20** (componentes standalone)
-- Linguagens: TypeScript, HTML, CSS
+### Stack atual (implementada)
+- **Frontend:** Angular 20 (standalone components)
+- **Linguagens:** TypeScript, HTML, CSS
+- **Gerenciamento de estado:** estado local em componentes (dados simulados)
 
-### Futuro (planejado)
-- Backend: PocketBase
-- Banco: PocketBase embutido
-- Hospedagem do backend: VPS
-- Domínio: Hostinger
+### Stack futura (planejada)
+- **Backend:** PocketBase
+- **Banco:** PocketBase embutido
+- **Hospedagem backend:** VPS
+- **Domínio:** Hostinger
 
-> Ainda não há integração real com backend nesta etapa.
+> **Importante:** nesta fase ainda **não existe integração real com backend**.
 
 ---
 
-## 3) Rotas e navegação temporária
-Rotas ativas:
+## 3) Telas existentes
+Rotas mantidas no projeto:
 - `/` → Splash
 - `/login` → Login
 - `/register` → Cadastro
@@ -41,68 +45,72 @@ Rotas ativas:
 - `/questoes` → Questões
 - `/planos` → Planos
 
-Navegação global temporária de desenvolvimento:
-- simples e discreta;
-- presente para circular entre todas as páginas;
-- mantém fluxo de validação de frontend sem backend.
+### Estado funcional atual
+- Navegação ponta a ponta entre todas as telas
+- Formulários públicos preservados (login, cadastro, recuperar senha)
+- Área logada com telas estruturadas e dados simulados
 
 ---
 
-## 4) Definições de conteúdo (fase frontend)
-### Planos exibidos no frontend
-1. Gratuito — acesso limitado (até 10 questões por dia)
-2. Mensal — acesso ilimitado (R$ 14,90)
-3. Vitalício — acesso ilimitado permanente (R$ 29,90)
+## 4) Navegação temporária global (desenvolvimento)
+Existe um **menu global temporário** visível em todas as telas para acelerar validação de fluxo.
 
-### Matérias exibidas no frontend
-- Língua Portuguesa: 20 questões
-- Raciocínio Lógico: 10 questões
-- Informática: 10 questões
-- Legislação Aplicada / Direito: 30 questões
-- Legislação da Polícia Penal: 10 questões
-- Conhecimentos Gerais: 10 questões para Policial Penal / 0 a 10 em alguns casos conforme edital
+### Características
+- Implementado no shell da aplicação (`App`)
+- Presente em todas as rotas
+- Links para todas as telas do sistema
+- Destaque visual da rota atual com `routerLinkActive`
 
-### Submatérias (organização visual)
-- Direito Penal (Parte Geral e Parte Especial)
-- Direito Processual Penal
-- Direitos Humanos e Estatuto do Idoso
-- Lei de Execução Penal, Regimento Interno e Legislação da Polícia Penal
-- Informática básica e avançada
-- Raciocínio Lógico e Matemática básica aplicada a questões de concursos
-- Língua Portuguesa (interpretação, gramática e redação prática)
+### Links do menu
+- Splash
+- Login
+- Cadastro
+- Recuperar senha
+- Home
+- Matérias
+- Questões
+- Planos
 
-### Regras da tela de questões
-- Frontend com **pelo menos 5 questões simuladas**.
-- A explicação aparece **somente após clicar em “Responder”**.
-- Antes de responder, não exibir explicação.
-- Após responder:
-  - indicar acerto/erro;
-  - mostrar explicação;
-  - bloquear alteração da alternativa naquela tentativa.
-- Botão “Próxima questão” permanece ativo para navegação entre questões.
+> Essa navegação é temporária para construção. Na fase de produto final, poderá ser substituída por navegação definitiva.
 
 ---
 
-## 5) Diretrizes visuais
-- Manter layout amplo, sem aparência encolhida.
-- Evitar “card pequeno perdido no centro”.
-- Preservar estética limpa, profissional e vendável.
-- Melhorar distribuição e proporção de conteúdo nas telas.
-- Não fazer refatoração agressiva sem necessidade.
+## 5) Regras de frontend (obrigatórias nesta fase)
+1. **Não integrar backend real agora**.
+2. **Não implementar regra final de negócio** nesta etapa.
+3. Manter interface limpa, profissional e consistente.
+4. Evitar excesso de efeitos e poluição visual.
+5. Priorizar clareza de navegação e feedback dos estados.
+6. Preservar rotas e fluxos já estáveis ao refinar telas.
+7. Toda evolução deve manter compatibilidade com componentes standalone.
 
 ---
 
-## 6) Convenções de nome
-- Priorizar português em textos e nomes de propriedades auxiliares.
-- Manter termos técnicos do Angular quando necessários (`CommonModule`, `FormsModule`, `RouterLink`, etc.).
+## 6) Convenção de nomenclatura
+### Diretriz geral
+Priorizar português sempre que possível (componentes, propriedades, textos de interface e variáveis auxiliares).
+
+### Exceções permitidas
+Manter termos em inglês quando forem exigidos por:
+- APIs do Angular (`RouterLink`, `CommonModule`, etc.);
+- convenções técnicas de framework;
+- caminhos/arquivos já consolidados cuja mudança possa quebrar a aplicação.
+
+### Convenção adotada nesta fase
+- Estrutura base atual (`pages`, `core`) foi preservada por estabilidade.
+- Padronização em português foi reforçada principalmente em:
+  - textos de interface;
+  - nomes de propriedades/métodos auxiliares;
+  - organização semântica dos blocos visuais.
 
 ---
 
-## 7) Estrutura atual
+## 7) Organização atual do projeto
 ```text
 src/
   app/
     core/
+      auth.service.ts
     pages/
       splash/
       login/
@@ -116,41 +124,82 @@ src/
     app.html
     app.css
     app.routes.ts
+  styles.css
 ```
+
+### Observação estrutural
+Como objetivo de curto prazo é estabilidade e entrega do frontend, **não foi feita migração agressiva de pastas** para evitar quebra de imports/rotas.
+
+Na próxima fase, se necessário, podemos planejar uma migração controlada para diretórios 100% em português (ex.: `paginas`, `servicos`, `compartilhado`).
 
 ---
 
-## 8) Comandos de execução
-Instalação:
+## 8) Critérios visuais e UX adotados
+- Hierarquia clara de títulos e subtítulos
+- Espaçamento consistente entre seções
+- Cartões com borda suave e leitura confortável
+- Botões principais com contraste adequado
+- Estados de desabilitado visíveis e sem ambiguidade
+- Feedback de acerto/erro na tela de questões
+- Consistência de linguagem e tom em todas as telas
+
+---
+
+## 9) Dados simulados (mock)
+Para esta etapa, telas internas usam dados simulados:
+- Home: usuário, assinatura e uso diário
+- Matérias: lista de disciplinas
+- Questões: enunciado, alternativas, resposta correta e feedback
+- Planos: catálogo de planos e chamadas de conversão
+
+> Esses dados serão substituídos por integração real com PocketBase na próxima etapa.
+
+---
+
+## 10) Como executar o projeto
+### Pré-requisitos
+- Node.js 20+
+- npm 10+
+
+### Instalação
 ```bash
 npm install
 ```
 
-Desenvolvimento:
+### Ambiente de desenvolvimento
 ```bash
 npm start
 ```
 
-Build:
+### Build de produção
 ```bash
 npm run build
 ```
 
-Testes:
+### Testes unitários
 ```bash
 npm test
 ```
 
 ---
 
-## 9) Correções recentes
-- Correções de tipagem revisadas nas telas de Matérias e Planos.
-- Build validado com sucesso em **2026-04-13**.
+## 11) Próximos passos (fase backend)
+1. Definir modelo de dados no PocketBase (usuários, matérias, questões, planos, progresso).
+2. Conectar autenticação real com backend.
+3. Substituir mocks por serviços HTTP.
+4. Implementar regras de produto (limites, trilhas, progresso persistente).
+5. Evoluir navegação temporária para navegação definitiva do produto.
 
 ---
 
-## 10) Próxima etapa
-Após concluir frontend:
-1. integrar autenticação e dados com PocketBase;
-2. substituir dados simulados por dados reais;
-3. implementar regras finais de negócio.
+## 12) Status da etapa atual
+✅ Frontend Angular refinado, navegável e consistente.  
+✅ README atualizado como base oficial do projeto.  
+⏳ Integração real com PocketBase fica para a próxima etapa.
+
+---
+
+## 13) Sincronização da base
+- Última revisão técnica do frontend: **2026-04-13**.
+- Build validado com sucesso antes de preparar PR.
+- Branch local mantida alinhada para continuidade da fase frontend.

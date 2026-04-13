@@ -1,44 +1,49 @@
-<section class="pagina">
-  <header class="cabecalho">
+<main class="pagina">
+  <section class="cabecalho">
     <h1>Questões</h1>
-    <p>Prática simulada com correção imediata e explicação após cada resposta.</p>
-  </header>
+    <p>Treine com questões simuladas e acompanhe seu desempenho.</p>
+  </section>
 
   <section class="regra-plano">
     <strong>Plano gratuito:</strong> até 10 questões por dia.
   </section>
 
   <section class="questao-card">
-    <div class="questao-topo">
-      <h2>Questão {{ indiceQuestaoAtual + 1 }} de {{ questoes.length }}</h2>
-      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
-    </div>
-
-    <p class="enunciado">{{ questaoAtual.enunciado }}</p>
+    <h2>Questão exemplo</h2>
+    <p class="enunciado">{{ enunciado }}</p>
 
     <div class="alternativas">
-      <label
-        *ngFor="let alternativa of questaoAtual.alternativas"
-        [class.selecionada]="alternativaSelecionada === alternativa.id"
-      >
+      <label *ngFor="let alternativa of alternativas">
         <input
           type="radio"
           name="alternativa"
           [value]="alternativa.id"
           [(ngModel)]="alternativaSelecionada"
-          [disabled]="respondeu"
         />
         <span><strong>{{ alternativa.id }})</strong> {{ alternativa.texto }}</span>
       </label>
     </div>
 
     <div class="acoes">
-      <button type="button" (click)="responder()" [disabled]="!podeResponder">Responder</button>
+      <button type="button" (click)="responder()" [disabled]="!alternativaSelecionada">Responder</button>
+      <button type="button" class="secundario" (click)="proximaQuestao()">Próxima questão</button>
     </div>
 
-    <section class="feedback" *ngIf="respondeu" [class.correto]="acertou" [class.incorreto]="!acertou">
-      <h3>{{ acertou ? 'Resposta correta!' : 'Resposta incorreta.' }}</h3>
-      <p class="explicacao">{{ questaoAtual.explicacao }}</p>
+    <section class="feedback" [class.correto]="respondeu && alternativaSelecionada === alternativaCorreta" [class.incorreto]="respondeu && alternativaSelecionada !== alternativaCorreta">
+      <h3>Feedback</h3>
+      <p>{{ feedback }}</p>
+      <p class="explicacao">
+        Explicação: a alternativa <strong>{{ alternativaCorreta }}</strong> representa competências da União previstas na Constituição, como telecomunicações e defesa nacional.
+      </p>
     </section>
   </section>
-</section>
+</main>
+
+<footer class="footer-dev">
+  <a routerLink="/home">Home</a>
+  <a routerLink="/materias">Matérias</a>
+  <a routerLink="/questoes">Questões</a>
+  <a routerLink="/planos">Planos</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/register">Cadastro</a>
+</footer>

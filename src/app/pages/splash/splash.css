@@ -6,44 +6,43 @@
   align-items: center;
   gap: 20px;
   text-align: center;
-  padding: 28px;
+  padding: 24px;
   box-sizing: border-box;
 }
 
 .apresentacao {
   background: #fff;
   border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 34px 30px;
-  width: min(960px, 100%);
+  border-radius: 18px;
+  padding: 26px 24px;
+  width: min(520px, 100%);
 }
 
 .logo {
-  width: 260px;
+  width: 220px;
   max-width: 70vw;
-  margin: 0 auto 14px;
+  margin: 0 auto 12px;
   display: block;
 }
 
 h1 {
-  font-size: 46px;
+  font-size: 40px;
   margin: 0;
   color: #111827;
   line-height: 1.1;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 1px;
   color: #4b5563;
-  margin: 8px 0 14px;
+  margin: 8px 0 12px;
   line-height: 1.2;
 }
 
 p {
   margin: 0;
   color: #6b7280;
-  font-size: 17px;
 }
 
 .rodape {
