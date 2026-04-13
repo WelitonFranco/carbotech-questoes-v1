@@ -1,5 +1,4 @@
 .pagina {
-  padding: 28px 20px 36px;
   min-height: calc(100vh - 68px);
   padding: 32px 24px 96px;
   background: #f7f7f8;
@@ -9,27 +8,16 @@
 
 .cabecalho h1 {
   margin: 6px 0;
-  font-size: 32px;
   font-size: 28px;
 }
 
 .boas-vindas {
   margin: 0;
   font-weight: 600;
-  color: #374151;
 }
 
 .subtitulo {
   margin: 0;
-  color: #6b7280;
-  max-width: 580px;
-}
-
-.grade-inicial {
-  margin-top: 24px;
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   color: #5d5d5d;
 }
 
@@ -42,15 +30,6 @@
 
 .card {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.card h2,
-.acoes-rapidas h2 {
-  margin: 0 0 10px;
-  font-size: 19px;
   border: 1px solid #e7e7e7;
   border-radius: 12px;
   padding: 18px;
@@ -64,14 +43,6 @@
 
 .status {
   margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.descricao,
-small {
-  color: #6b7280;
   font-weight: 600;
 }
 
@@ -83,8 +54,6 @@ small {
 .barra-progresso {
   width: 100%;
   height: 10px;
-  margin: 12px 0;
-  background: #e5e7eb;
   background: #efefef;
   border-radius: 999px;
   overflow: hidden;
@@ -93,19 +62,6 @@ small {
 .barra-progresso span {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, #111827, #374151);
-}
-
-.link-card {
-  display: inline-block;
-  margin-top: 10px;
-  color: #111827;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.acoes-rapidas {
-  margin-top: 26px;
   background: #111;
 }
 
@@ -115,8 +71,6 @@ small {
 
 .atalhos-grid {
   display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
 }
@@ -124,20 +78,6 @@ small {
 .atalho {
   text-decoration: none;
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.atalho strong {
-  color: #111827;
-}
-
-.atalho span {
-  color: #6b7280;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
   padding: 12px;

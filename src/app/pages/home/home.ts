@@ -21,10 +21,6 @@ export class Home {
     limite: 10,
   };
 
-  get questoesRestantesHoje(): number {
-    return Math.max(this.usoDiario.limite - this.usoDiario.respondidas, 0);
-  }
-
   get percentualUso(): number {
     return (this.usoDiario.respondidas / this.usoDiario.limite) * 100;
   }

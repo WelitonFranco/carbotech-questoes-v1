@@ -1,18 +1,1 @@
-<div class="aplicacao">
-  <header class="menu-global" aria-label="Navegação temporária global">
-    <nav>
-      <a
-        *ngFor="let link of linksNavegacao"
-        [routerLink]="link.rota"
-        routerLinkActive="ativo"
-        [routerLinkActiveOptions]="{ exact: link.exato ?? false }"
-      >
-        {{ link.rotulo }}
-      </a>
-    </nav>
-  </header>
-
-  <main class="conteudo-principal">
-    <router-outlet />
-  </main>
-</div>
+<router-outlet />
