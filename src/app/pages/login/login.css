@@ -3,47 +3,87 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 20px;
+  padding: clamp(20px, 4vw, 44px);
   box-sizing: border-box;
 }
 
-.card {
+.auth-layout {
   width: 100%;
-  max-width: 360px;
-  background: #fff;
+  min-height: min(640px, calc(100vh - 130px));
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(420px, 1.2fr);
   border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 24px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.auth-highlight {
+  padding: clamp(28px, 5vw, 56px);
+  background: linear-gradient(145deg, #111827 0%, #1f2937 45%, #374151 100%);
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.highlight-logo {
+  width: 74px;
+  margin-bottom: 22px;
+  filter: brightness(0) invert(1);
+}
+
+.auth-highlight h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+}
+
+.auth-highlight p {
+  margin: 14px 0 0;
+  color: #e5e7eb;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+.panel {
+  padding: clamp(28px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .logo {
-  width: 50px;
-  margin-bottom: 12px;
+  width: 58px;
+  margin-bottom: 14px;
 }
 
 h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 36px;
   color: #111827;
 }
 
 .subtitulo {
-  margin: 6px 0 18px;
+  margin: 8px 0 24px;
   color: #6b7280;
+  font-size: 15px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  max-width: 540px;
 }
 
 input {
-  height: 44px;
+  height: 48px;
   border-radius: 10px;
   border: 1px solid #d1d5db;
-  padding: 0 12px;
-  font-size: 14px;
+  padding: 0 14px;
+  font-size: 15px;
 }
 
 input:focus {
@@ -53,7 +93,7 @@ input:focus {
 }
 
 .btn {
-  height: 48px;
+  height: 50px;
   border: none;
   border-radius: 10px;
   background: #111827;
@@ -74,15 +114,25 @@ input:focus {
 }
 
 .links {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .links a {
   color: #111827;
-  text-align: left;
   font-weight: 500;
   text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .auth-highlight {
+    padding-bottom: 24px;
+  }
 }
