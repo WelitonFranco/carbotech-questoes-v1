@@ -1,0 +1,83 @@
+.pagina-perfil {
+  padding: 30px 20px 40px;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+.cabecalho h1 {
+  margin: 6px 0;
+  font-size: 32px;
+}
+
+.tag {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #374151;
+}
+
+.descricao {
+  margin: 0;
+  color: #6b7280;
+}
+
+.painel {
+  margin-top: 22px;
+  width: min(100%, 860px);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.linha span {
+  color: #6b7280;
+}
+
+.linha strong {
+  text-align: right;
+}
+
+.btn-logout {
+  margin-top: 8px;
+  width: fit-content;
+  min-width: 140px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mensagem {
+  margin: 0;
+  color: #166534;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .linha {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linha strong {
+    text-align: left;
+  }
+}

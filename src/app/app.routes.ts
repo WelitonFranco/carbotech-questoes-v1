@@ -8,6 +8,8 @@ import { Materias } from './pages/materias/materias';
 import { Questoes } from './pages/questoes/questoes';
 import { Planos } from './pages/planos/planos';
 import { Provas } from './pages/provas/provas';
+import { Perfil } from './pages/perfil/perfil';
+import { Admin } from './pages/admin/admin';
 
 export const routes: Routes = [
   { path: '', component: Splash },
@@ -19,4 +21,6 @@ export const routes: Routes = [
   { path: 'questoes', component: Questoes },
   { path: 'provas', component: Provas },
   { path: 'planos', component: Planos },
+  { path: 'perfil', component: Perfil },
+  { path: 'admin', component: Admin },
 ];

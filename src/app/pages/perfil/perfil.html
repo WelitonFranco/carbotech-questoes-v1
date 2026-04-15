@@ -1,0 +1,28 @@
+<main class="pagina-perfil">
+  <section class="cabecalho">
+    <p class="tag">Conta</p>
+    <h1>Perfil</h1>
+    <p class="descricao">Visualização de dados do usuário (simulado).</p>
+  </section>
+
+  <section class="painel">
+    <article class="linha">
+      <span>Nome</span>
+      <strong>{{ usuario.nome }}</strong>
+    </article>
+
+    <article class="linha">
+      <span>E-mail</span>
+      <strong>{{ usuario.email }}</strong>
+    </article>
+
+    <article class="linha">
+      <span>Status do plano</span>
+      <strong>{{ usuario.plano }}</strong>
+    </article>
+
+    <button type="button" class="btn-logout" (click)="sair()">Logout</button>
+
+    <p class="mensagem" *ngIf="mensagemLogout">{{ mensagemLogout }}</p>
+  </section>
+</main>

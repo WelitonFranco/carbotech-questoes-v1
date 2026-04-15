@@ -1,18 +1,30 @@
-<div class="aplicacao">
-  <header class="menu-global" aria-label="Navegação temporária global">
-    <nav>
-      <a
-        *ngFor="let link of linksNavegacao"
-        [routerLink]="link.rota"
-        routerLinkActive="ativo"
-        [routerLinkActiveOptions]="{ exact: link.exato ?? false }"
+<div class="aplicacao" [class.menu-aberto]="menuAberto">
+  <header class="menu-global" aria-label="Navegação global">
+    <div class="topbar">
+      <div class="marca">
+        <img src="/coal.png" alt="Logo CarboTech" />
+        <strong>CarboTech</strong>
+      </div>
+
+      <button
+        type="button"
+        class="botao-menu"
+        (click)="alternarMenu()"
+        [attr.aria-expanded]="menuAberto"
+        aria-label="Abrir ou fechar menu lateral"
       >
-        {{ link.rotulo }}
-      </a>
-    </nav>
+        <span [class.ativo]="menuAberto"></span>
+      </button>
+    </div>
   </header>
 
   <main class="conteudo-principal">
     <router-outlet />
   </main>
+
+  <app-menu-lateral
+    [aberto]="menuAberto"
+    [links]="linksNavegacao"
+    (fechar)="fecharMenu()"
+  ></app-menu-lateral>
 </div>
