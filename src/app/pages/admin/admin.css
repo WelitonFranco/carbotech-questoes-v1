@@ -1,0 +1,50 @@
+.pagina-admin {
+  padding: 30px 20px 40px;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+.tag {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #374151;
+}
+
+.cabecalho h1 {
+  margin: 6px 0;
+  font-size: 32px;
+}
+
+.descricao {
+  margin: 0;
+  color: #6b7280;
+}
+
+.grid-admin {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.bloco {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 150px;
+}
+
+.bloco h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.bloco p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}

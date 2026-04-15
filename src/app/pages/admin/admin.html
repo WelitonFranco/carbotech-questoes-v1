@@ -1,0 +1,14 @@
+<main class="pagina-admin">
+  <section class="cabecalho">
+    <p class="tag">Área administrativa</p>
+    <h1>Admin</h1>
+    <p class="descricao">Acesso restrito para administradores (visual inicial).</p>
+  </section>
+
+  <section class="grid-admin">
+    <article class="bloco" *ngFor="let bloco of blocos">
+      <h2>{{ bloco.titulo }}</h2>
+      <p>{{ bloco.descricao }}</p>
+    </article>
+  </section>
+</main>

@@ -13,43 +13,86 @@
 .menu-global {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid #e5e7eb;
   padding: 10px 16px;
 }
 
-.menu-global nav {
+.topbar {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.menu-global a {
-  text-decoration: none;
-  color: #374151;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid transparent;
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.menu-global a:hover {
-  border-color: #d1d5db;
-  background: #f9fafb;
+.marca img {
+  width: 34px;
+  height: auto;
 }
 
-.menu-global a.ativo {
+.marca strong {
+  font-size: 17px;
+}
+
+.botao-menu {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.botao-menu span,
+.botao-menu span::before,
+.botao-menu span::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 99px;
   background: #111827;
-  color: #fff;
+  transition: transform 0.22s ease, opacity 0.2s ease;
+}
+
+.botao-menu span::before {
+  transform: translateY(-6px);
+}
+
+.botao-menu span::after {
+  transform: translateY(4px);
+}
+
+.botao-menu span.ativo {
+  transform: rotate(45deg);
+}
+
+.botao-menu span.ativo::before {
+  transform: rotate(90deg);
+}
+
+.botao-menu span.ativo::after {
+  opacity: 0;
 }
 
 .conteudo-principal {
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
+}
+
+.aplicacao.menu-aberto {
+  overflow: hidden;
 }

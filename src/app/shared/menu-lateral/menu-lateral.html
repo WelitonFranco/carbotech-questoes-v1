@@ -1,0 +1,31 @@
+<div
+  class="overlay"
+  [class.visivel]="aberto"
+  (click)="fecharMenu()"
+  [attr.aria-hidden]="!aberto"
+></div>
+
+<aside class="menu-lateral" [class.aberto]="aberto" aria-label="Menu lateral de navegação">
+  <header class="menu-cabecalho">
+    <div>
+      <strong>Navegação</strong>
+      <p>CarboTech</p>
+    </div>
+
+    <button type="button" class="fechar-menu" (click)="fecharMenu()" aria-label="Fechar menu">
+      ✕
+    </button>
+  </header>
+
+  <nav>
+    <a
+      *ngFor="let link of links"
+      [routerLink]="link.rota"
+      routerLinkActive="ativo"
+      [routerLinkActiveOptions]="{ exact: link.exato ?? false }"
+      (click)="fecharMenu()"
+    >
+      {{ link.rotulo }}
+    </a>
+  </nav>
+</aside>

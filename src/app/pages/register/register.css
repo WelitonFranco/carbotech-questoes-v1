@@ -3,37 +3,72 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 20px;
+  padding: clamp(20px, 4vw, 44px);
   box-sizing: border-box;
+}
+
+.register-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.95fr) minmax(460px, 1.25fr);
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.register-highlight {
+  padding: clamp(28px, 5vw, 56px);
+  background: linear-gradient(160deg, #111827 0%, #1f2937 50%, #374151 100%);
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.highlight-logo {
+  width: 74px;
+  margin-bottom: 22px;
+  filter: brightness(0) invert(1);
+}
+
+.register-highlight h2 {
+  margin: 0;
+  font-size: clamp(30px, 3.8vw, 42px);
+  line-height: 1.1;
+}
+
+.register-highlight p {
+  margin: 14px 0 0;
+  color: #e5e7eb;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 34ch;
 }
 
 .form {
   width: 100%;
-  max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 24px;
+  padding: clamp(26px, 4vw, 44px);
 }
 
 .logo {
-  width: 50px;
+  width: 56px;
   margin-bottom: 4px;
 }
 
 .title {
   margin: 0;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 700;
   color: #111827;
   text-align: left;
 }
 
 .subtitulo {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: #6b7280;
 }
 
@@ -41,7 +76,7 @@ input[type='text'],
 input[type='email'],
 input[type='tel'],
 input[type='password'] {
-  height: 44px;
+  height: 46px;
   border-radius: 10px;
   border: 1px solid #d1d5db;
   padding: 0 12px;
@@ -129,4 +164,10 @@ input[type='password']:focus {
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+@media (max-width: 920px) {
+  .register-layout {
+    grid-template-columns: 1fr;
+  }
 }

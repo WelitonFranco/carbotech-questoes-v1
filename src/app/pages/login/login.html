@@ -1,38 +1,49 @@
 <section class="container">
-  <div class="card">
-    <img src="/coal.png" alt="Logo CarboTech" class="logo" />
-    <h1>Entrar</h1>
-    <p class="subtitulo">Acesse sua conta para continuar seus estudos.</p>
+  <div class="auth-layout">
+    <aside class="auth-highlight" aria-hidden="true">
+      <img src="/coal.png" alt="" class="highlight-logo" />
+      <h2>Estude com consistência</h2>
+      <p>
+        Acompanhe seu desempenho e mantenha sua rotina diária de questões com
+        uma experiência mais fluida.
+      </p>
+    </aside>
 
-    <form class="form" (ngSubmit)="entrar()">
-      <input
-        type="email"
-        name="email"
-        placeholder="E-mail"
-        [(ngModel)]="email"
-        autocomplete="email"
-        aria-label="E-mail"
-      />
+    <div class="panel">
+      <img src="/coal.png" alt="Logo CarboTech" class="logo" />
+      <h1>Entrar</h1>
+      <p class="subtitulo">Acesse sua conta para continuar seus estudos.</p>
 
-      <input
-        type="password"
-        name="senha"
-        placeholder="Senha"
-        [(ngModel)]="senha"
-        autocomplete="current-password"
-        aria-label="Senha"
-      />
+      <form class="form" (ngSubmit)="entrar()">
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          [(ngModel)]="email"
+          autocomplete="email"
+          aria-label="E-mail"
+        />
 
-      <p class="error-message" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+        <input
+          type="password"
+          name="senha"
+          placeholder="Senha"
+          [(ngModel)]="senha"
+          autocomplete="current-password"
+          aria-label="Senha"
+        />
 
-      <button type="submit" class="btn" [disabled]="loading">
-        {{ loading ? 'Entrando...' : 'Entrar' }}
-      </button>
-    </form>
+        <p class="error-message" *ngIf="mensagemErro">{{ mensagemErro }}</p>
 
-    <div class="links">
-      <a routerLink="/forgot-password">Esqueci minha senha</a>
-      <a routerLink="/register">Criar conta</a>
+        <button type="submit" class="btn" [disabled]="loading">
+          {{ loading ? 'Entrando...' : 'Entrar' }}
+        </button>
+      </form>
+
+      <div class="links">
+        <a routerLink="/forgot-password">Esqueci minha senha</a>
+        <a routerLink="/register">Criar conta</a>
+      </div>
     </div>
   </div>
 </section>
